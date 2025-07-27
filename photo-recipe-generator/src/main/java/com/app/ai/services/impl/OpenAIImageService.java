@@ -17,10 +17,17 @@ public class OpenAIImageService implements ImageService  {
     }
 
     @Override
-    public ImageResponse generateImage(String prompt) {
-        return openAiImageModel.call(
-                new ImagePrompt(prompt)
+    public ImageResponse generateImage(String prompt, String quality, int n, int width, int height ) {
+        ImageResponse imageResponse = openAiImageModel.call(
+                new ImagePrompt(prompt,
+                        OpenAiImageOptions.builder()
+                                .model("dall-e-2")
+                                .N(n)
+                                .height(height)
+                                .width(width).build())
         );
+
+        return imageResponse;
     }
 
     @Override
