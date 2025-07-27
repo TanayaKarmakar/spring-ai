@@ -46,8 +46,8 @@ function RecipeGenerator() {
             />
 
             <button onClick={() => createRecipeHandler()}>Create Recipe</button>
-            <div className="output">
-                <p>{recipe}</p>    
+            <div>
+                <pre className="output">{recipe}</pre>    
             </div>
         </div>
     );
